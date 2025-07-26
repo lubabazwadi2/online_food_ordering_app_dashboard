@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة إدارة الطلبات</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="header-controls">
+                <h1>قائِمة المتابعة</h1>
+                <button class="audio-toggle" id="audioToggle"><i class="fas fa-volume-up"></i></button>
+
+            </span>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-status="all">الكل
+                <span class="stat-number" id="totalOrders">0</span>
+            </button>
+            <button class="filter-btn new" data-status="new">جديد
+                <span class="stat-number" id="newOrders">0</span>
+            </button>
+            <button class="filter-btn processing" data-status="processing">قيد التجهيز
+                <span class="stat-number" id="processingOrders">0</span>
+            </button>
+            <button class="filter-btn ready" data-status="ready">جاهز للاستلام
+                <span class="stat-number" id="readyOrders">0</span>
+            </button>
+            <button class="filter-btn completed" data-status="completed">مكتمل
+                <span class="stat-number" id="completedOrders">0</span>
+            </button>
+            <button class="filter-btn rejected" data-status="rejected">مرفوض
+                <span class="stat-number" id="rejectedOrders">0</span>
+            </button>
+            <button class="filter-btn cancelled" data-status="cancelled">ملغي
+                <span class="stat-number" id="cancelledOrders">0</span>
+            </button>
+        </div>
+
+        <div class="orders-grid" id="ordersGrid">
+            <!-- Orders will be populated here -->
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body" id="modalBody">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <!-- Order details will be populated here -->
+            </div>
+        </div>
+    </div>
+                <span style=" position: absolute; bottom: 10px; left: 10px; color: rgb(66, 65, 65); font-weight: 600;">
+                    آخر تحديث: <span id="lastUpdate"></span>
+                </span>
+    <div class="notification" id="notification">
+        <div id="notificationText"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
