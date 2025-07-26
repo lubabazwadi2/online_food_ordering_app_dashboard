@@ -420,20 +420,12 @@ function hideElement(element) {
 
 function showHideOrderButtons(){
     // 1. Get references to the buttons
-    const copyOrderDetailsAr = document.getElementById('copyOrderDetailsAr');
-    const saveOrderCardAr = document.getElementById('saveOrderCardAr');
-    const copyOrderDetailsEn = document.getElementById('copyOrderDetailsEn');
-    const saveOrderCardEn = document.getElementById('saveOrderCardEn');
     const refundOrder = document.getElementById('refundOrder');
     const copyCancellationMessage = document.getElementById('copyCancellationMessage');
 
     // 2. Hide all buttons initially
     [
         refundOrder,
-        copyOrderDetailsAr,
-        saveOrderCardAr,
-        copyOrderDetailsEn,
-        saveOrderCardEn,
         copyCancellationMessage
     ].forEach(button => hideElement(button));
 
@@ -441,10 +433,6 @@ function showHideOrderButtons(){
     // 3. Implement conditional logic based on order status
     if (selectedOrder.status === 'ready' || selectedOrder.status === 'processing') {
         showElement(refundOrder);
-        showElement(copyOrderDetailsAr);
-        showElement(saveOrderCardAr);
-        showElement(copyOrderDetailsEn);
-        showElement(saveOrderCardEn);
     } else if (selectedOrder.status === 'cancelled') {
         showElement(copyCancellationMessage);
     }
